@@ -1,11 +1,11 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, Suspense } from 'react'
 import { useSearchParams, useRouter } from 'next/navigation'
 import { login, signup, type ActionResult } from './actions'
 import { useToast, ToastContainer } from '@/components/toast'
 
-export default function LoginPage() {
+function LoginForm() {
   const [isSignUp, setIsSignUp] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
   const searchParams = useSearchParams()
@@ -140,5 +140,17 @@ export default function LoginPage() {
         </div>
       </div>
     </>
+  )
+}
+
+export default function LoginPage() {
+  return (
+    <Suspense fallback={
+      <div className="flex min-h-screen items-center justify-center">
+        <div className="text-gray-600 dark:text-gray-400">در حال بارگذاری...</div>
+      </div>
+    }>
+      <LoginForm />
+    </Suspense>
   )
 }
