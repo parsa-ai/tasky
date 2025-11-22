@@ -64,7 +64,6 @@ export function useToast() {
     const newToast: Toast = { id, message, type }
     setToasts((prev) => [...prev, newToast])
 
-    // حذف خودکار بعد از 5 ثانیه
     setTimeout(() => {
       removeToast(id)
     }, 5000)
