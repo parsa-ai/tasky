@@ -118,7 +118,7 @@ export async function signup(formData: FormData): Promise<ActionResult> {
         full_name: trimmedFullname,
         display_name: trimmedFullname,
       },
-      emailRedirectTo: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://tasky-wheat.vercel.app'}/auth/confirm`,
+      emailRedirectTo: `https://tasky-wheat.vercel.app/auth/confirm`,
     },
   })
 
